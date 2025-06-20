@@ -25,7 +25,7 @@ export type TestimonialsProps = SliceComponentProps<Content.TestimonialsSlice>;
 /**
  * Component for "Testimonials" Slices.
  */
-const Testimonials: FC<TestimonialsProps> = async ({ slice }): Promise<any> => {
+const Testimonials: FC<TestimonialsProps> = async ({ slice }) => {
   const client = createClient();
   const testimonials = await Promise.all(
     slice.primary.testimonial_list.map((item) => {

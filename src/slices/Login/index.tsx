@@ -7,7 +7,6 @@ import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import Heading from "@/components/Heading";
 import Bounded from "@/components/Bounded";
 import Button from "@/components/Button";
-import LoginPage from "@/components/LoginForm";
 import { useRouter } from "next/navigation";
 import { apiPost } from "@/lib/api";
 import { LoginRequest } from "@/model/LoginRequest";

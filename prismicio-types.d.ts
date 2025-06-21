@@ -157,6 +157,67 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >;
 
+type LoginDocumentDataSlicesSlice = LoginSlice;
+
+/**
+ * Content for Login documents
+ */
+interface LoginDocumentData {
+  /**
+   * Slice Zone field in *Login*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: login.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<LoginDocumentDataSlicesSlice> /**
+   * Meta Title field in *Login*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: login.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Login*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: login.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Login*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: login.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Login document from Prismic
+ *
+ * - **API ID**: `login`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type LoginDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<Simplify<LoginDocumentData>, "login", Lang>;
+
 type PageDocumentDataSlicesSlice =
   | TestimonialsSlice
   | TextWithImageSlice
@@ -391,6 +452,7 @@ export type TestimonialDocument<Lang extends string = string> =
 export type AllDocumentTypes =
   | AboutDocument
   | HomepageDocument
+  | LoginDocument
   | PageDocument
   | SettingsDocument
   | TestimonialDocument;
@@ -731,6 +793,196 @@ type HeroSliceVariation = HeroSliceDefault | HeroSliceHorizontal;
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
+ * Primary content in *Login → Default → Primary*
+ */
+export interface LoginSliceDefaultPrimary {
+  /**
+   * Heading field in *Login → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: login.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * LoginGoogleButton field in *Login → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: login.default.primary.logingooglebutton
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  logingooglebutton: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * LoginGoogleButtonText field in *Login → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: login.default.primary.logingooglebuttontext
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  logingooglebuttontext: prismic.KeyTextField;
+
+  /**
+   * LoginTwitterButton field in *Login → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: login.default.primary.logintwitterbutton
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  logintwitterbutton: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * LoginTwitterButtonText field in *Login → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: login.default.primary.logintwitterbuttontext
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  logintwitterbuttontext: prismic.KeyTextField;
+
+  /**
+   * Separator field in *Login → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: login.default.primary.separator
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  separator: prismic.RichTextField;
+
+  /**
+   * UserNameLabel field in *Login → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: login.default.primary.usernamelabel
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  usernamelabel: prismic.KeyTextField;
+
+  /**
+   * PasswordLabel field in *Login → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: login.default.primary.passwordlabel
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  passwordlabel: prismic.KeyTextField;
+
+  /**
+   * ForgetPasswordLink field in *Login → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: login.default.primary.forgetpasswordlink
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  forgetpasswordlink: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * ForgetPasswordText field in *Login → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: login.default.primary.forgetpasswordtext
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  forgetpasswordtext: prismic.KeyTextField;
+
+  /**
+   * SignInButtonText field in *Login → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: login.default.primary.signinbuttontext
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  signinbuttontext: prismic.KeyTextField;
+
+  /**
+   * NotHaveAccountText field in *Login → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: login.default.primary.nothaveaccounttext
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  nothaveaccounttext: prismic.KeyTextField;
+
+  /**
+   * SignUpText field in *Login → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: login.default.primary.signuptext
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  signuptext: prismic.KeyTextField;
+
+  /**
+   * Image field in *Login → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: login.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Login Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type LoginSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<LoginSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Login*
+ */
+type LoginSliceVariation = LoginSliceDefault;
+
+/**
+ * Login Shared Slice
+ *
+ * - **API ID**: `login`
+ * - **Description**: Login
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type LoginSlice = prismic.SharedSlice<"login", LoginSliceVariation>;
+
+/**
  * Item in *Testimonials → Default → Primary → Testimonial List*
  */
 export interface TestimonialsSliceDefaultPrimaryTestimonialListItem {
@@ -944,6 +1196,9 @@ declare module "@prismicio/client" {
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
+      LoginDocument,
+      LoginDocumentData,
+      LoginDocumentDataSlicesSlice,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
@@ -968,6 +1223,10 @@ declare module "@prismicio/client" {
       HeroSliceVariation,
       HeroSliceDefault,
       HeroSliceHorizontal,
+      LoginSlice,
+      LoginSliceDefaultPrimary,
+      LoginSliceVariation,
+      LoginSliceDefault,
       TestimonialsSlice,
       TestimonialsSliceDefaultPrimaryTestimonialListItem,
       TestimonialsSliceDefaultPrimary,

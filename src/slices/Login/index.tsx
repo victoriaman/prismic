@@ -2,9 +2,6 @@ import { FC, useState } from "react";
 import { Content } from "@prismicio/client";
 import { JSXMapSerializer, PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
-import { useRouter } from "next/router";
-import axios from "axios";
-
 import Heading from "@/components/Heading";
 import Bounded from "@/components/Bounded";
 import Button from "@/components/Button";
@@ -29,10 +26,6 @@ export type LoginProps = SliceComponentProps<Content.LoginSlice>;
  * Component for "Login" Slices.
  */
 const Login: FC<LoginProps> = ({ slice }) => {
-  // const router = useRouter();
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [error, setError] = useState("");
   return (
     <Bounded
       data-slice-type={slice.slice_type}

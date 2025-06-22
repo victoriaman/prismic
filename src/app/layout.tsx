@@ -5,9 +5,6 @@ import clsx from "clsx";
 import { createClient, repositoryName } from "@/prismicio";
 import { PrismicPreview } from "@prismicio/next";
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-
 const nunito = Nunito({
   variable: "--font-nunito",
   subsets: ["latin"],

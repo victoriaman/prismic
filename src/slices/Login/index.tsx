@@ -56,6 +56,11 @@ const Login: FC<LoginProps> = ({ slice }) => {
     }
   };
 
+  /* set to true for verifing error handling */
+  if (false) {
+    throw new Error("Dashboard failed to render");
+  }
+
   return (
     <Bounded
       data-slice-type={slice.slice_type}

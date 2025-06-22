@@ -17,7 +17,7 @@ export const apiPost = async<T>(url: string, data: any): Promise<T> => {
 
     return await response.json();
   } catch (error) {
-    console.error('Error in API POST request:', error);
+    console.error('Error in API POST request: ', error);
     throw error;
   }
 }

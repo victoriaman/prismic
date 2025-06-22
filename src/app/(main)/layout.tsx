@@ -5,7 +5,7 @@ export default function LoginLayout({ children }: { children: React.ReactNode })
     return (
         <main>
             <Header></Header>
-            {children}
+            {children} 
             <Footer />
         </main>
     );

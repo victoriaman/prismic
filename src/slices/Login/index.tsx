@@ -10,6 +10,7 @@ import Button from "@/components/Button";
 import { useRouter } from "next/navigation";
 import { apiPost } from "@/lib/api";
 import { LoginRequest } from "@/model/LoginRequest";
+import { CONSTANT } from "@/lib/constant";
 
 const components: JSXMapSerializer = {
   heading2: ({ children }) => (
@@ -47,6 +48,7 @@ const Login: FC<LoginProps> = ({ slice }) => {
       });
 
       if (isValid) {
+        document.cookie = `${CONSTANT.AUTHENTICATION_COOKIE_NAME}=true; path=/;`;
         router.push("/about"); // Redirect after login
       } else {
         setError("Username or password is incorrect");

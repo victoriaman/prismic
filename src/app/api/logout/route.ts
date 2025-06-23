@@ -1,3 +1,4 @@
+import { CONSTANT } from "@/lib/constant";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
@@ -7,7 +8,7 @@ export async function GET(request: NextRequest) {
   const response = NextResponse.redirect(url);
   console.log("Logging out...");
 
-  response.cookies.set("auth", "", {
+  response.cookies.set(CONSTANT.AUTHENTICATION_COOKIE_NAME, "", {
     path: "/",
     expires: new Date(0), // Expire immediately
   });

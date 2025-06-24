@@ -6,7 +6,7 @@ export function middleware(request: NextRequest) {
     console.log("middleware called:", pathname);
 
     const isAuthenticated = request.cookies.get(CONSTANT.AUTHENTICATION_COOKIE_NAME)?.value === "true";
-    if (["/features", "/marketing/about", "/about"].includes(pathname) && !isAuthenticated) {
+    if (["/", "/features", "/marketing/about", "/about"].includes(pathname) && !isAuthenticated) {
         return NextResponse.redirect(new URL("/login", request.url));
     }
 
@@ -14,5 +14,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-    matcher: ["/features", "/marketing/about", "/about"],
+    matcher: ["/", "/features", "/marketing/about", "/about"],
 };

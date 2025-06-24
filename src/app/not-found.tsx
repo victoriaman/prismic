@@ -18,7 +18,7 @@ export default async function NotFound() {
                 />
                 <h2>
                     <p className="font-bold text-slate-800">Domain: {domain}</p>
-                    <Link href="/about">Go to home page</Link>
+                    <Link href="/">Go to home page</Link>
                 </h2>
             </div>
         </Bounded>

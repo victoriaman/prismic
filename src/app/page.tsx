@@ -5,12 +5,20 @@ import { SliceZone } from "@prismicio/react";
 
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 export default async function Page() {
   const client = createClient();
   const page = await client.getSingle("homepage").catch(() => notFound());
 
-  return <SliceZone slices={page.data.slices} components={components} />;
+  return (
+    <main>
+      <Header></Header>
+        <SliceZone slices={page.data.slices} components={components} />
+      <Footer />
+    </main>
+  );
 }
 
 export async function generateMetadata(): Promise<Metadata> {

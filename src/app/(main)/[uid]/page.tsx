@@ -34,6 +34,7 @@ export async function generateMetadata({
   };
 }
 
+// Return a list of `params` to populate the [uid] dynamic segment
 export async function generateStaticParams() {
   const client = createClient();
   const pages = await client.getAllByType("page");

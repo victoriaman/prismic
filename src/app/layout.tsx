@@ -23,7 +23,10 @@ export async function generateMetadata(): Promise<Metadata> {
   const page = await client.getSingle("settings");
  
   return {
-    title: page.data.site_title || 'Flowrise titel fallback',
+    title: {
+      default: page.data.site_title || 'Flowrise titel fallback',
+      template: `%s | ${page.data.site_title}`,
+    },
     description: page.data.meta_description || 'Flowrise description fallback',
     openGraph: {
       images: [page.data.og_image.url || '']

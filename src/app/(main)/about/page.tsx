@@ -18,7 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const page = await client.getSingle("about").catch(() => notFound());
 
   return {
-    title: page.data.meta_title,
+    title: page.data.meta_title || 'Fallback Title',
     description: page.data.meta_description,
     openGraph: {
       images: [{ url: asImageSrc(page.data.meta_image) ?? "" }],

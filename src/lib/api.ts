@@ -1,3 +1,5 @@
+'use server'
+
 export const apiPost = async<T>(url: string, data: any): Promise<T> => {
   try {
     const { email, password } = data;

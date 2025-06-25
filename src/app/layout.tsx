@@ -4,6 +4,7 @@ import "./globals.css";
 import clsx from "clsx";
 import { createClient, repositoryName } from "@/prismicio";
 import { PrismicPreview } from "@prismicio/next";
+import { after } from "next/server";
 
 const nunito = Nunito({
   variable: "--font-nunito",
@@ -35,6 +36,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  after(() => {
+    // Execute after the layout is rendered and sent to the user
+    console.log("RootLayout rendered successfully");
+    // You can perform any additional actions here, such as logging or analytics
+  })
+  
   return (
     <html lang="en" className={clsx(nunito.className, nunitoSans.className)}>
       <body>

@@ -1,5 +1,5 @@
 import { CONSTANT } from "@/lib/constant";
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse, after } from "next/server";
 import { cookies } from 'next/headers'
 
 export async function GET(request: NextRequest) {
@@ -13,7 +13,11 @@ export async function GET(request: NextRequest) {
   const response = NextResponse.redirect(url);
   console.log("Logging out...");
 
-
+  after(async () => {
+    // Execute after the logout action
+    console.log("Logout action completed.");
+    // You can perform any additional actions here, such as logging or analytics
+  })
 
   response.cookies.set(CONSTANT.AUTHENTICATION_COOKIE_NAME, "", {
     path: "/",

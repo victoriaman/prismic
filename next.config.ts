@@ -6,6 +6,12 @@ const nextConfig: NextConfig = {
   env: {
     appName: 'Prismic App',
   },
+  logging: {
+    fetches: {
+      fullUrl: true,
+      hmrRefreshes: true,
+    },
+  },
 };
 
 export default nextConfig;
